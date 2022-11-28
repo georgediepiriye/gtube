@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import image from "../images/youtube.png";
+
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
@@ -20,29 +20,18 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 
 const Container = styled.div`
   flex: 1;
-  background-color: ${({ theme }) => theme.bg};
-  height: 100vh;
+  background-color: ${({ theme }) => theme.bgLighter};
+  height: 150vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
-  top: 0;
+  top: 56px;
 `;
 
 const Wrapper = styled.div`
   height: 100vh;
   padding: 18px 26px;
   overflow: scroll;
-`;
-
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  margin-bottom: 25px;
-  gap: 5px;
-`;
-const Image = styled.img`
-  height: 25px;
 `;
 
 const Item = styled.div`
@@ -84,10 +73,6 @@ const Menu = ({ lightMode, setLightMode }) => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <Image src={image} />
-          GTube
-        </Logo>
         <Item>
           <HomeOutlinedIcon />
           Home
@@ -111,7 +96,7 @@ const Menu = ({ lightMode, setLightMode }) => {
         </Item>
         <Hr />
         <Login>
-          Sign in to like videos,comment and subscribe
+          Sign in to like videos, comment and subscribe
           <Button>
             <AccountCircleOutlinedIcon />
             SIGN IN
