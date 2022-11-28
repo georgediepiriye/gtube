@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import Menu from "../src/components/Menu";
 import Navbar from "./components/Navbar";
+import { darkTheme, lightTheme } from "./utils/theme";
 
 const Container = styled.div`
   display: flex;
@@ -8,19 +10,23 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 7;
+  background-color: ${({ theme }) => theme.bg};
 `;
 
 const Wrapper = styled.div``;
 
 function App() {
+  const [lightMode, setLightMode] = useState(true);
   return (
-    <Container>
-      <Menu />
-      <Main>
-        <Navbar />
-        <Wrapper>video cards</Wrapper>
-      </Main>
-    </Container>
+    <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
+      <Container>
+        <Menu lightMode={lightMode} setLightMode={setLightMode} />
+        <Main>
+          <Navbar />
+          <Wrapper>video cards</Wrapper>
+        </Main>
+      </Container>
+    </ThemeProvider>
   );
 }
 
