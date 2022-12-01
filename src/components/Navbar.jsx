@@ -3,6 +3,7 @@ import styled from "styled-components";
 import image from "../images/youtube.png";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 56px;
@@ -67,10 +68,12 @@ const Navbar = () => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <Image src={image} />
-          GTube
-        </Logo>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Logo>
+            <Image src={image} />
+            GTube
+          </Logo>
+        </Link>
         <Search>
           <Input placeholder="Seach" />
           <SearchOutlinedIcon />

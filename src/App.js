@@ -3,6 +3,9 @@ import styled, { ThemeProvider } from "styled-components";
 import Menu from "../src/components/Menu";
 import Navbar from "./components/Navbar";
 import { darkTheme, lightTheme } from "./utils/theme";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Video from "./pages/Video";
 
 const Container = styled.div`
   display: flex;
@@ -14,8 +17,9 @@ const Main = styled.div`
   display: flex;
 `;
 
-const Content = styled.div`
+const Wrapper = styled.div`
   flex: 7;
+  padding: 22px;
 `;
 
 function App() {
@@ -23,12 +27,24 @@ function App() {
   return (
     <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
       <Container>
-        <Navbar />
-        <Main>
-          <Menu lightMode={lightMode} setLightMode={setLightMode} />
+        <Router>
+          <Navbar />
+          <Main>
+            <Menu lightMode={lightMode} setLightMode={setLightMode} />
 
-          <Content>test</Content>
-        </Main>
+            <Wrapper>
+              <Routes>
+                <Route path="/">
+                  <Route index element={<Home />} />
+
+                  <Route path="video">
+                    <Route path=":id" element={<Video />} />
+                  </Route>
+                </Route>
+              </Routes>
+            </Wrapper>
+          </Main>
+        </Router>
       </Container>
     </ThemeProvider>
   );
