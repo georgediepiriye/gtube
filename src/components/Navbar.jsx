@@ -54,14 +54,15 @@ const Search = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 40%;
-  padding: 5px;
+  padding: 7px 15px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 20px;
 `;
 const Input = styled.input`
   flex: 8;
   border: none;
   background-color: transparent;
+  outline: none;
 `;
 
 const Navbar = () => {
@@ -78,10 +79,13 @@ const Navbar = () => {
           <Input placeholder="Seach" />
           <SearchOutlinedIcon />
         </Search>
-        <Button>
-          <AccountCircleOutlinedIcon />
-          SIGN IN
-        </Button>
+
+        <Link to="signin" style={{ textDecoration: "none" }}>
+          <Button>
+            <AccountCircleOutlinedIcon />
+            SIGN IN
+          </Button>
+        </Link>
       </Wrapper>
     </Container>
   );
